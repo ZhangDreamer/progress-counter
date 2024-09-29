@@ -1,5 +1,6 @@
 import './ProgressHeader.css';
 import {useState} from 'react';
+import DigitalClock from './DigitalClock.jsx';
 
 function ProgressHeader(){
 
@@ -38,6 +39,7 @@ function ProgressHeader(){
             </div>
           </div>
         </div>
+        <DigitalClock/>
     </div>
   )
 }
