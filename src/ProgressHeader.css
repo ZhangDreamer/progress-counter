@@ -16,6 +16,7 @@
   display: none;
   position: absolute;
   min-width: 100px;
+  background-color: #fcfcfc;
   box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.1);
 }
 
