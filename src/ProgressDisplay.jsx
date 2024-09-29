@@ -20,8 +20,8 @@ function ProgressDisplay(){
               <p className='comment'>I did exercise</p>
               <button className='delete-button'>🗑️</button>
               <div className='react-buttons'>
-                <button>👍</button>
-                <button>👎</button>
+                <button className="upvote-button">👍</button>
+                <button className="downvote-button">👎</button>
               </div>
             </div>
             <div className='note'>
@@ -30,8 +30,8 @@ function ProgressDisplay(){
               </p>
               <button className='delete-button'>🗑️</button>
               <div className='react-buttons'>
-                <button>👍</button>
-                <button>👎</button>
+                <button className="upvote-button">👍</button>
+                <button className="downvote-button">👎</button>
               </div>
             </div>
           </div>
