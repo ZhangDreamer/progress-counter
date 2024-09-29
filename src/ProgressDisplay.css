@@ -68,3 +68,8 @@
   background-color: hsl(0, 0%, 88%);
 }
 
+.react-buttons{
+  display: flex;
+  flex-direction: column;
+}
+
