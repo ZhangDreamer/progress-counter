@@ -1,5 +1,19 @@
+import './ProgressHeader.css';
+import {useState} from 'react';
 
 function ProgressHeader(){
+
+  const [isSearchClicked, setIsSearchClicked] = useState(false);
+
+  function handleSearchButton(){
+    if(isSearchClicked){
+      document.querySelector('.search-content').style.display = 'none';
+      setIsSearchClicked(false);
+    } else{
+      document.querySelector('.search-content').style.display = 'block';
+      setIsSearchClicked(true);
+    }
+  }
 
   return(
     <div className='progress-header'>
@@ -8,7 +22,7 @@ function ProgressHeader(){
         <span>Level X</span>
         <div className="progress-meter" style={{width: 40 + '%'}}></div>
         <div className="search-dropdown">
-          <button>Search⮟</button>
+          <button className='search-button' onClick={handleSearchButton}>Search⮟</button>
           <div className="search-content">
             <div className='keyword-search'>
               <span>Keyword</span>
@@ -20,7 +34,9 @@ function ProgressHeader(){
               <input/>
               <input/>
             </div>
-            <button className='submit-button'>Submit</button>
+            <div className='submit-button-container'>
+              <button className='submit-button'>Submit</button>
+            </div>
           </div>
         </div>
       </div>

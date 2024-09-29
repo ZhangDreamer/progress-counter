@@ -1,0 +1,21 @@
+.search-dropdown{
+  display: inline-block;
+}
+
+.search-dropdown .search-button{
+  cursor: pointer
+}
+
+.search-dropdown div{
+  display: block;
+  color: black;
+  padding: 10px 15px;
+}
+
+.search-dropdown .search-content{
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.1);
+}
+
