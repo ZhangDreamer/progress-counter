@@ -18,12 +18,21 @@ function ProgressDisplay(){
             <div className='note'>
               <p>W/L</p>
               <p className='comment'>I did exercise</p>
-              <button>🗑️</button>
+              <button className='delete-button'>🗑️</button>
+              <div className='react-buttons'>
+                <button>👍</button>
+                <button>👎</button>
+              </div>
             </div>
             <div className='note'>
               <p>W/L</p>
-              <p className='comment'>I did exercise and ate icecream and i worked on some stuff asdasdas</p>
-              <button>🗑️</button>
+              <p className='comment'>I did exercise and ate icecream and i worked on some stuff asdasdas
+              </p>
+              <button className='delete-button'>🗑️</button>
+              <div className='react-buttons'>
+                <button>👍</button>
+                <button>👎</button>
+              </div>
             </div>
           </div>
         </div>
