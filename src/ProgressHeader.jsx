@@ -20,8 +20,9 @@ function ProgressHeader(){
       <h1>Name</h1>
       <div className='progress-bar'>
         <span>Level X</span>
-        <div className="progress-meter" style={{width: 40 + '%'}}></div>
-        <div className="search-dropdown">
+        <div className="progress-meter" style={{width: 40 + '%'}}></div><span></span> 
+      </div>
+      <div className="search-dropdown">
           <button className='search-button' onClick={handleSearchButton}>Search⮟</button>
           <div className="search-content">
             <div className='keyword-search'>
@@ -39,7 +40,6 @@ function ProgressHeader(){
             </div>
           </div>
         </div>
-      </div>
     </div>
   )
 }

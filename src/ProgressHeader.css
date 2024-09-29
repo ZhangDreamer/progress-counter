@@ -19,3 +19,10 @@
   box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.1);
 }
 
+.progress-meter {
+  height: 20px;
+  background-color: #4caf50;
+  width: 40%;
+  margin: 5px 0;
+}
+
