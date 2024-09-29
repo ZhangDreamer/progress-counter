@@ -1,0 +1,65 @@
+.progress-display{
+  display: flex;
+  flex-direction: column;
+}
+.display-header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+}
+.display-header div{
+  border: 1px solid black;
+}
+.display-header h3{
+  display: flex;
+  justify-content: center;
+}
+.progress-notes{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+}
+.progress-notes h4{
+  display: flex;
+  justify-content: center;
+}
+.progress-notes .element{
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+.note {
+  display: flex;                    
+  justify-content: space-between;  
+  align-items: center;              
+  padding: 5px;                  
+  border: 1px solid #ccc;        
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 5px;                   
+  background-color: #f9f9f9;      
+}
+.note p {
+  margin: 0;                   
+  padding: 0 10px;                
+  border-right: 1px solid #ccc;
+}
+.note .comment{
+  width: 100%;
+}
+.note p:last-child {
+  border-right: none;         
+}
+.note button {
+  margin-left: 1px;
+  padding: 5px 10px;               
+  font-size: 1.2rem;
+  background-color: #f9f9f9;                
+  border: none;    
+  cursor: pointer;                  
+  transition: background-color 0.3s; 
+}
+
+.note button:hover {
+  background-color: hsl(0, 0%, 88%);
+}
+
