@@ -1,3 +1,4 @@
+import './ProgressInput.css';
 
 function ProgressInput(){
 
