@@ -1,0 +1,37 @@
+.progress-input-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 10px 30%;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-input-container input[type="radio"] {
+  margin: 0 5px;
+}
+
+.progress-input-container input[type="text"] {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 350px;
+}
+
+.progress-input-container button {
+  padding: 5px 10px;
+  font-size: 1rem;
+  margin-left: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress-input-container button:hover {
+  background-color: #45a049;
+}

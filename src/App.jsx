@@ -1,4 +1,5 @@
 import ProgressDisplay from './ProgressDisplay.jsx';
+import './index.css';
 
 function App() {
 

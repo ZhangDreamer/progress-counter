@@ -22,7 +22,7 @@ function DigitalClock(){
 
     hours = hours % 12 || 12;
 
-    return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)} ${meridiem}`;
+    return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)} ${meridiem} EST`;
   }
 
   function padZero(number){
