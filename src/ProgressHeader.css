@@ -1,9 +1,53 @@
+.progress-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.progress-bar {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-width: 200px;
+}
+
+.progress-bar span {
+  font-size: 0.9rem;
+  margin: 0 5px;
+}
+
+.progress-bar .progress-meter {
+  flex-grow: 1;
+  height: 20px;
+  background-color: #4caf50;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+
 .search-dropdown{
   display: inline-block;
+  position: relative;
 }
+
+.search-dropdown .search-button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
 
 .search-dropdown .search-button{
   cursor: pointer
+}
+
+.search-dropdown .search-button:hover{
+  background-color: hsl(0, 0%, 90%);
 }
 
 .search-dropdown div{
@@ -20,12 +64,20 @@
   box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.1);
 }
 
-.progress-meter {
-  height: 20px;
+.submit-button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
   background-color: #4caf50;
-  width: 40%;
-  margin: 5px 0;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
+
+.submit-button:hover {
+  background-color: hsl(122, 39%, 39%);
+}
+
 
 .portrait {
   width: 256px;

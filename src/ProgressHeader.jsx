@@ -23,6 +23,7 @@ function ProgressHeader(){
         <span>Level X</span>
         <div className="progress-meter" style={{width: 40 + '%'}}></div><span>Wins/Total Wins + Loss</span> 
       </div>
+      <img className="portrait" src="https://www.scrolldroll.com/wp-content/uploads/2021/08/Anime-Quotes-14-750x430.jpg" alt="motivation-quote"/>
       <div className="search-dropdown">
           <button className='search-button' onClick={handleSearchButton}>Search⮟</button>
           <div className="search-content">
@@ -31,7 +32,7 @@ function ProgressHeader(){
               <input type="text"/>
             </div>
             <div className='search-date'>
-              <span>Date</span>
+              <span>Date</span><br/>
               <input type="date"/>
             </div>
             <div className='submit-button-container'>
@@ -40,7 +41,7 @@ function ProgressHeader(){
           </div>
         </div>
       <DigitalClock/>
-      <img className="portrait" src="https://www.scrolldroll.com/wp-content/uploads/2021/08/Anime-Quotes-14-750x430.jpg" alt="motivation-quote"/>
+      
     </div>
   )
 }
