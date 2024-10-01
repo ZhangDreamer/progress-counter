@@ -39,7 +39,8 @@ function ProgressHeader(){
             </div>
           </div>
         </div>
-        <DigitalClock/>
+      <DigitalClock/>
+      <img className="portrait" src="https://www.scrolldroll.com/wp-content/uploads/2021/08/Anime-Quotes-14-750x430.jpg" alt="motivation-quote"/>
     </div>
   )
 }
