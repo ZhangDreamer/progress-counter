@@ -7,7 +7,7 @@ function ProgressDisplay(){
 
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([{
-      id: '001',
+      id: '1',
       date: '29/9/24',
       winOrLose: 'W',
       message: 'I did exercise and ate icecream and i worked on some stuff asdasdas',
@@ -15,7 +15,7 @@ function ProgressDisplay(){
       dislikes: 0
     },
     {
-      id: '002',
+      id: '2',
       date: '29/9/24',
       winOrLose: 'L',
       message: 'I watched RE:ZERO today',
@@ -23,6 +23,10 @@ function ProgressDisplay(){
       dislikes: 1
     },
   ]);
+
+  function handleDeleteButton(id){
+    setMessages(messages.filter((_, index) => index !== (Number(id) - 1)));
+  }
 
 
   return(
@@ -41,7 +45,7 @@ function ProgressDisplay(){
             <div className='note' key={message.id}>
               <p>{message.winOrLose}</p>
               <p className='comment'>{message.message}</p>
-              <button className='delete-button' id={message.id}>🗑️</button>
+              <button className='delete-button' id={message.id} onClick={() => handleDeleteButton(message.id)}>🗑️</button>
               <div className='react-buttons'>
                 <button className="upvote-button">👍 {message.likes}</button>
                 <button className="downvote-button">👎 {message.dislikes}</button>

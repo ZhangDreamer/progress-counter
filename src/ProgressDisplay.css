@@ -24,6 +24,7 @@
   justify-content: center;
 }
 .progress-notes .element{
+  width: 700px;
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
@@ -36,7 +37,7 @@
   border: 1px solid #ccc;        
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 5px;                   
-  background-color: #f9f9f9;      
+  background-color: #f9f9f9;
 }
 .note p:first-child {
   margin: 0;                   
