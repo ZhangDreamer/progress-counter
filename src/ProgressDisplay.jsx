@@ -6,8 +6,7 @@ import {useState} from 'react';
 function ProgressDisplay(){
 
   const [input, setInput] = useState('');
-
-  const messages = [{
+  const [messages, setMessages] = useState([{
       id: '001',
       date: '29/9/24',
       winOrLose: 'W',
@@ -23,7 +22,8 @@ function ProgressDisplay(){
       likes: 0,
       dislikes: 1
     },
-  ];
+  ]);
+
 
   return(
     <div className='progress-display-container'>
@@ -52,7 +52,7 @@ function ProgressDisplay(){
           </div>
         </div>
       </div>
-      <ProgressInput setInput={setInput}/>
+      <ProgressInput input={input} setInput={setInput} messages={messages} setMessages={setMessages}/>
     </div>
   )
 }
