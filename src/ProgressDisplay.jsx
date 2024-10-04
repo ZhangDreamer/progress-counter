@@ -7,6 +7,24 @@ function ProgressDisplay(){
 
   const [input, setInput] = useState('');
 
+  const messages = [{
+      id: '001',
+      date: '29/9/24',
+      winOrLose: 'W',
+      message: 'I did exercise and ate icecream and i worked on some stuff asdasdas',
+      likes: 1,
+      dislikes: 0
+    },
+    {
+      id: '002',
+      date: '29/9/24',
+      winOrLose: 'L',
+      message: 'I watched RE:ZERO today',
+      likes: 0,
+      dislikes: 1
+    },
+  ];
+
   return(
     <div className='progress-display-container'>
       <ProgressHeader/>
@@ -16,27 +34,21 @@ function ProgressDisplay(){
           <div><h3>Today's Result: +2</h3></div>
         </div>
         <div className='progress-notes'>
-          <div className='element'><h4>29/9/2024</h4></div>
+          <div className='element date'><h4>29/9/2024</h4></div>
           <div className='element'>
-            <div className='note'>
-              <p>W/L</p>
-              <p className='comment'>I did exercise</p>
-              <button className='delete-button'>🗑️</button>
+          {messages.map((message) => {
+            return (
+            <div className='note' key={message.id}>
+              <p>{message.winOrLose}</p>
+              <p className='comment'>{message.message}</p>
+              <button className='delete-button' id={message.id}>🗑️</button>
               <div className='react-buttons'>
-                <button className="upvote-button">👍 1</button>
-                <button className="downvote-button">👎 0</button>
+                <button className="upvote-button">👍 {message.likes}</button>
+                <button className="downvote-button">👎 {message.dislikes}</button>
               </div>
             </div>
-            <div className='note'>
-              <p>W/L</p>
-              <p className='comment'>I did exercise and ate icecream and i worked on some stuff asdasdas
-              </p>
-              <button className='delete-button'>🗑️</button>
-              <div className='react-buttons'>
-                <button className="upvote-button">👍 1</button>
-                <button className="downvote-button">👎 0</button>
-              </div>
-            </div>
+            )
+          })}
           </div>
         </div>
       </div>
