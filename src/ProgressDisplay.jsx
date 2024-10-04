@@ -1,8 +1,11 @@
 import ProgressHeader from './ProgressHeader.jsx';
 import ProgressInput from './ProgressInput.jsx';
 import './ProgressDisplay.css';
+import {useState} from 'react';
 
 function ProgressDisplay(){
+
+  const [input, setInput] = useState("");
 
   return(
     <div className='progress-display-container'>
@@ -37,7 +40,7 @@ function ProgressDisplay(){
           </div>
         </div>
       </div>
-      <ProgressInput/>
+      <ProgressInput setInput={setInput}/>
     </div>
   )
 }
