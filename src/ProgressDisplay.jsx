@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 function ProgressDisplay(){
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   return(
     <div className='progress-display-container'>
