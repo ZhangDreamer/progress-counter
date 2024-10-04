@@ -10,24 +10,31 @@ function ProgressInput(props){
   }
 
   function handleSendButton(){
-    props.setMessages([...props.messages, {
-      id: '003',
-      date: '29/9/24',
-      winOrLose: 'W',
-      message: input,
-      likes: 1,
-      dislikes: 0
-    }])
 
-    setInput('');
+    const winOrLoseOption = document.querySelector('input[name="option"]:checked').value;
+
+    if(winOrLoseOption){
+      props.setMessages([...props.messages, {
+        id: `${props.messages.length + 1}`,
+        date: '29/9/24',
+        winOrLose: winOrLoseOption,
+        message: input,
+        likes: 0,
+        dislikes: 0
+      }])
+  
+      setInput('');
+    } else{
+      return
+    }
   }
 
   return(
     <div className="progress-input-container">
       <label htmlFor='win'>Win</label>
-      <input type="radio" name='option' id='win' value="win"/>
+      <input type="radio" name='option' id='win' value="W"/>
       <label htmlFor='Lose'>Lose</label>
-      <input type="radio" name='option' id='lose' value="lose"/>
+      <input type="radio" name='option' id='lose' value="L"/>
       <input type="text" onChange={handleInputChange}/>
       <button onClick={handleSendButton}>▶</button>
     </div>
