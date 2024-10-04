@@ -25,7 +25,7 @@ function ProgressDisplay(){
   ]);
 
   function handleDeleteButton(id){
-    setMessages(messages.filter((_, index) => index !== (Number(id) - 1)));
+    setMessages(messages.filter((_, index) => index !== id));
   }
 
 
@@ -40,12 +40,12 @@ function ProgressDisplay(){
         <div className='progress-notes'>
           <div className='element date'><h4>29/9/2024</h4></div>
           <div className='element'>
-          {messages.map((message) => {
+          {messages.map((message, index) => {
             return (
             <div className='note' key={message.id}>
               <p>{message.winOrLose}</p>
               <p className='comment'>{message.message}</p>
-              <button className='delete-button' id={message.id} onClick={() => handleDeleteButton(message.id)}>🗑️</button>
+              <button className='delete-button' id={message.id} onClick={() => handleDeleteButton(index)}>🗑️</button>
               <div className='react-buttons'>
                 <button className="upvote-button">👍 {message.likes}</button>
                 <button className="downvote-button">👎 {message.dislikes}</button>

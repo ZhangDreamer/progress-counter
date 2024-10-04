@@ -11,7 +11,7 @@ function ProgressInput(props){
 
   function handleSendButton(){
 
-    const winOrLoseOption = document.querySelector('input[name="option"]:checked').value;
+    const winOrLoseOption = document.querySelector('input[name="option"]:checked') ? document.querySelector('input[name="option"]:checked').value : null;
 
     if(winOrLoseOption){
       props.setMessages([...props.messages, {
@@ -22,7 +22,8 @@ function ProgressInput(props){
         likes: 0,
         dislikes: 0
       }])
-  
+      document.getElementById('input').value = "";
+      document.querySelector('input[name="option"]:checked').checked = false;
       setInput('');
     } else{
       return
@@ -35,7 +36,7 @@ function ProgressInput(props){
       <input type="radio" name='option' id='win' value="W"/>
       <label htmlFor='Lose'>Lose</label>
       <input type="radio" name='option' id='lose' value="L"/>
-      <input type="text" onChange={handleInputChange}/>
+      <input type="text" onChange={handleInputChange} id="input"/>
       <button onClick={handleSendButton}>▶</button>
     </div>
   )
