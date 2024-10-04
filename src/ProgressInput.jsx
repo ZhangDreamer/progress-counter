@@ -7,6 +7,10 @@ function ProgressInput(props){
     props.setInput(event.target.value);
   }
 
+  function handleSendButton(){
+
+  }
+
   return(
     <div className="progress-input-container">
       <label htmlFor='win'>Win</label>
@@ -14,7 +18,7 @@ function ProgressInput(props){
       <label htmlFor='Lose'>Lose</label>
       <input type="radio" name='option' id='lose' value="lose"/>
       <input type="text" onChange={handleInputChange}/>
-      <button>▶</button>
+      <button onClick={handleSendButton}>▶</button>
     </div>
   )
 }
