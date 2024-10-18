@@ -13,7 +13,7 @@ function ProgressInput(props){
 
     const winOrLoseOption = document.querySelector('input[name="option"]:checked') ? document.querySelector('input[name="option"]:checked').value : null;
 
-    if(winOrLoseOption){
+    if(winOrLoseOption && input !== ''){
       props.setMessages([...props.messages, {
         id: `${props.messages.length + 1}`,
         date: '29/9/24',
