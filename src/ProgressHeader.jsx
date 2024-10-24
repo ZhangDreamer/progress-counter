@@ -2,7 +2,7 @@ import './ProgressHeader.css';
 import {useState} from 'react';
 import DigitalClock from './DigitalClock.jsx';
 
-function ProgressHeader(){
+function ProgressHeader(props){
 
   const [isSearchClicked, setIsSearchClicked] = useState(false);
 
@@ -40,7 +40,7 @@ function ProgressHeader(){
             </div>
           </div>
         </div>
-      <DigitalClock/>
+      <DigitalClock setDate={props.setDate}/>
       
     </div>
   )

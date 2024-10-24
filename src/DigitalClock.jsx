@@ -2,7 +2,7 @@ import React, {useEffect, useState, useContext} from 'react';
 import { LocationContext } from './App.jsx';
 import fetchTime from './backend/fetchTime.js';
 
-function DigitalClock(){
+function DigitalClock(props){
 
   const location = useContext(LocationContext);
 
@@ -12,8 +12,16 @@ function DigitalClock(){
   useEffect(() => {
     const getTime = async () => {
       const fetchedTime = await fetchTime(location);
-      setTime(new Date(fetchedTime.datetime));
+      const timestamp = String(fetchedTime.datetime);
+      const splicedTimestamp = timestamp.slice(0,19);
+      const date = new Date(splicedTimestamp);
+      setTime(date);
       setTimezone(fetchedTime.abbreviation);
+      props.setDate(date.toLocaleDateString('en-ES', {
+        year: '2-digit',
+        month: '2-digit',
+        day: '2-digit'
+      }))
     }
 
     getTime();

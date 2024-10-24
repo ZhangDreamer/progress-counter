@@ -23,6 +23,7 @@ function ProgressDisplay(){
       dislikes: 1
     },
   ]);
+  const [date, setDate] = useState('12/10/24');
 
   function handleDeleteButton(id){
     setMessages(messages.filter((_, index) => index !== id));
@@ -62,14 +63,14 @@ function ProgressDisplay(){
 
   return(
     <div className='progress-display-container'>
-      <ProgressHeader/>
+      <ProgressHeader setDate={setDate}/>
       <div className='progress-display'>
         <div className='display-header'>
           <div><h3>Date</h3></div>
           <div><h3>Today's Result: {formatResult()}</h3></div>
         </div>
         <div className='progress-notes'>
-          <div className='element date'><h4>29/9/2024</h4></div>
+          <div className='element date'><h4>{date}</h4></div>
           <div className='element'>
           {messages.map((message, index) => {
             return (
