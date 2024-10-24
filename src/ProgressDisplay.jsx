@@ -48,13 +48,25 @@ function ProgressDisplay(){
     }))
   }
 
+  function formatResult(){
+    let result = 0;
+    messages.forEach((message) => {
+      if (message.winOrLose === 'W'){
+        result += 1;
+      } else {
+        result -= 1;
+      }
+    });
+    return result
+  }
+
   return(
     <div className='progress-display-container'>
       <ProgressHeader/>
       <div className='progress-display'>
         <div className='display-header'>
           <div><h3>Date</h3></div>
-          <div><h3>Today's Result: +2</h3></div>
+          <div><h3>Today's Result: {formatResult()}</h3></div>
         </div>
         <div className='progress-notes'>
           <div className='element date'><h4>29/9/2024</h4></div>
