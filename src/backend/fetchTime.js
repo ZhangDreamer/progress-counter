@@ -1,5 +1,5 @@
-async function fetchTime(con, city) {
-  const response = await fetch('https://worldtimeapi.org/api/timezone/America/Panama'); 
+async function fetchTime(location) {
+  const response = await fetch(`https://worldtimeapi.org/api/timezone/${location}`); 
   const data = await response.json();
 
   return data;

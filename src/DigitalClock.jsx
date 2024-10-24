@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
+import { LocationContext } from './App.jsx';
 import fetchTime from './backend/fetchTime.js';
 
 function DigitalClock(){
+
+  const location = useContext(LocationContext);
 
   const [time, setTime] = useState(null);
   const [timezone, setTimezone] = useState(null);
 
   useEffect(() => {
     const getTime = async () => {
-      const fetchedTime = await fetchTime();
+      const fetchedTime = await fetchTime(location);
       setTime(new Date(fetchedTime.datetime));
       setTimezone(fetchedTime.abbreviation);
     }
