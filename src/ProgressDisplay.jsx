@@ -28,6 +28,25 @@ function ProgressDisplay(){
     setMessages(messages.filter((_, index) => index !== id));
   }
 
+  function handleLikeButton(id){
+    setMessages(messages.map((message, index) => {
+      if(index === id){
+        return {...message, likes: message.likes += 1}
+      } else {
+        return message
+      }
+    }));
+  }
+
+  function handleDislikeButton(id){
+    setMessages(messages.map((message, index) => {
+      if(index === id){
+        return {...message, dislikes: message.dislikes += 1}
+      } else{
+        return message
+      }
+    }))
+  }
 
   return(
     <div className='progress-display-container'>
@@ -47,8 +66,8 @@ function ProgressDisplay(){
               <p className='comment'>{message.message}</p>
               <button className='delete-button' id={message.id} onClick={() => handleDeleteButton(index)}>🗑️</button>
               <div className='react-buttons'>
-                <button className="upvote-button">👍 {message.likes}</button>
-                <button className="downvote-button">👎 {message.dislikes}</button>
+                <button className="upvote-button" onClick={() => handleLikeButton(index)}>👍 {message.likes}</button>
+                <button className="downvote-button" onClick={() => handleDislikeButton(index)}>👎 {message.dislikes}</button>
               </div>
             </div>
             )
