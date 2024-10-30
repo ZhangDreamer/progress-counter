@@ -58,6 +58,10 @@ function ProgressDisplay(){
         result -= 1;
       }
     });
+
+    if (result > 0){
+      result = `+${result}`;
+    }
     return result
   }
 
