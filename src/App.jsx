@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <LocationContext.Provider value="America/Panama">
-      <ProgressDisplay/>
+      <ProgressDisplay user="Dreamer"/>
     </LocationContext.Provider>
     </>
   )

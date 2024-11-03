@@ -18,7 +18,7 @@ function ProgressHeader(props){
 
   return(
     <div className='progress-header'>
-      <h2>Name</h2>
+      <h2>{props.user}</h2>
       <div className='progress-bar'>
         <span>Level X</span>
         <div className="progress-meter" style={{width: 40 + '%'}}></div><span>Wins/Total Wins + Loss</span> 

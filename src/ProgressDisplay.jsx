@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import {db} from './lib/firebase.js';
 import { doc, getDoc, setDoc } from "firebase/firestore"; 
 
-function ProgressDisplay(){
+function ProgressDisplay(props){
 
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
@@ -86,7 +86,7 @@ function ProgressDisplay(){
 
   return(
     <div className='progress-display-container'>
-      <ProgressHeader setDate={setDate}/>
+      <ProgressHeader setDate={setDate} user={props.user}/>
       <div className='progress-display'>
         <div className='display-header'>
           <div><h3>Date</h3></div>
