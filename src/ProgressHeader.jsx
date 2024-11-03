@@ -23,7 +23,7 @@ function ProgressHeader(props){
         <span>Level X</span>
         <div className="progress-meter" style={{width: 40 + '%'}}></div><span>Wins/Total Wins + Loss</span> 
       </div>
-      <img className="portrait" src="https://www.scrolldroll.com/wp-content/uploads/2021/08/Anime-Quotes-14-750x430.jpg" alt="motivation-quote"/>
+      <img className="portrait" src={props.imgsrc} alt="motivation-quote"/>
       <div className="search-dropdown">
           <button className='search-button' onClick={handleSearchButton}>Search⮟</button>
           <div className="search-content">

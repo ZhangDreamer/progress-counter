@@ -105,7 +105,7 @@ function ProgressDisplay(props){
 
   return(
     <div className='progress-display-container'>
-      <ProgressHeader setDate={setDate} user={props.user}/>
+      <ProgressHeader setDate={setDate} user={props.user} imgsrc={props.imgsrc}/>
       <div className='progress-display'>
         <div className='display-header'>
           <div><h3>Date</h3></div>
