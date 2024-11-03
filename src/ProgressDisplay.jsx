@@ -23,7 +23,7 @@ function ProgressDisplay(){
       dislikes: 1
     },
   ]);
-  const [date, setDate] = useState('12/10/24');
+  const [date, setDate] = useState(null);
 
   function handleDeleteButton(id){
     setMessages(messages.filter((_, index) => index !== id));
