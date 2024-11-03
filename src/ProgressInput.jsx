@@ -33,8 +33,6 @@ function ProgressInput(props){
         }
       };
 
-      postMessage();
-
       props.setMessages([...props.messages, {
         id: `${props.messages.length + 1}`,
         winOrLose: winOrLoseOption,
@@ -45,6 +43,7 @@ function ProgressInput(props){
       document.getElementById('input').value = "";
       document.querySelector('input[name="option"]:checked').checked = false;
       setInput('');
+      postMessage();
     } else{
       return
     }

@@ -9,6 +9,7 @@ function ProgressDisplay(props){
 
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
+  const [isPosting, setIsPosting] = useState(false);
   const [date, setDate] = useState(null);
 
   useEffect(() => {
@@ -43,7 +44,26 @@ function ProgressDisplay(props){
     fetchBoardDocument();
   }, [date]);
 
+  useEffect(() => {
+    if(isPosting === true){
+      const postMessage = async () => {
+        try {
+          const ref = await setDoc(doc(db, `board${props.user}/${date}`), {
+            date: `${date}`,
+            messages: messages,
+          });
+        } catch (error) {
+          console.error("Error fetching document:", error);
+        }
+      };
+      postMessage();
+      setIsPosting(false);
+    }
+
+  }, [messages]);
+
   function handleDeleteButton(id){
+    setIsPosting(true);
     setMessages(messages.filter((_, index) => index !== id));
   }
 
@@ -64,7 +84,7 @@ function ProgressDisplay(props){
       } else{
         return message
       }
-    }))
+    }));
   }
 
   function formatResult(){
@@ -99,7 +119,7 @@ function ProgressDisplay(props){
             <div className='note' key={index}>
               <p>{message.winOrLose}</p>
               <p className='comment'>{message.message}</p>
-              <button className='delete-button' onClick={() => handleDeleteButton(index)}>🗑️</button>
+              <button className='delete-button' onClick={() => {handleDeleteButton(index)}}>🗑️</button>
               <div className='react-buttons'>
                 <button className="upvote-button" onClick={() => handleLikeButton(index)}>👍 {message.likes}</button>
                 <button className="downvote-button" onClick={() => handleDislikeButton(index)}>👎 {message.dislikes}</button>
