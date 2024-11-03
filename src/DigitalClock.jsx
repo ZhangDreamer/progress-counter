@@ -17,11 +17,7 @@ function DigitalClock(props){
       const date = new Date(splicedTimestamp);
       setTime(date);
       setTimezone(fetchedTime.abbreviation);
-      props.setDate(date.toLocaleDateString('en-ES', {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit'
-      }))
+      props.setDate(date.toLocaleDateString('en-CA'));
     }
 
     getTime();

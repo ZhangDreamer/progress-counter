@@ -1,29 +1,48 @@
 import ProgressHeader from './ProgressHeader.jsx';
 import ProgressInput from './ProgressInput.jsx';
 import './ProgressDisplay.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {db} from './lib/firebase.js';
+import { doc, getDoc, setDoc } from "firebase/firestore"; 
 
 function ProgressDisplay(){
 
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([{
-      id: '1',
-      date: '29/9/24',
-      winOrLose: 'W',
-      message: 'I did exercise and ate icecream and i worked on some stuff asdasdas',
-      likes: 1,
-      dislikes: 0
-    },
-    {
-      id: '2',
-      date: '29/9/24',
-      winOrLose: 'L',
-      message: 'I watched RE:ZERO today',
-      likes: 0,
-      dislikes: 1
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [date, setDate] = useState(null);
+
+  useEffect(() => {
+
+    const addBoardDocument = async () => {
+      try {
+        const docRef = await setDoc(doc(db, "board", date), {
+          date: date,
+          messages: [],
+        });
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    };
+
+    const fetchBoardDocument = async () => {
+      try {
+        if (date) {
+          //the board should be unique to each user
+          const ref = await getDoc(doc(db, `board/${date}`));
+          const data = ref.data();
+          if(data){
+            setMessages(data.messages);
+          } else{
+            addBoardDocument();
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+  
+    fetchBoardDocument();
+  }, [date]);
 
   function handleDeleteButton(id){
     setMessages(messages.filter((_, index) => index !== id));
@@ -78,10 +97,10 @@ function ProgressDisplay(){
           <div className='element'>
           {messages.map((message, index) => {
             return (
-            <div className='note' key={message.id}>
+            <div className='note' key={index}>
               <p>{message.winOrLose}</p>
               <p className='comment'>{message.message}</p>
-              <button className='delete-button' id={message.id} onClick={() => handleDeleteButton(index)}>🗑️</button>
+              <button className='delete-button' onClick={() => handleDeleteButton(index)}>🗑️</button>
               <div className='react-buttons'>
                 <button className="upvote-button" onClick={() => handleLikeButton(index)}>👍 {message.likes}</button>
                 <button className="downvote-button" onClick={() => handleDislikeButton(index)}>👎 {message.dislikes}</button>
