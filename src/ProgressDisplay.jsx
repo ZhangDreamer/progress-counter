@@ -15,7 +15,7 @@ function ProgressDisplay(props){
 
     const addBoardDocument = async () => {
       try {
-        const docRef = await setDoc(doc(db, "board", date), {
+        const docRef = await setDoc(doc(db, `board${props.user}`, date), {
           date: date,
           messages: [],
         });
@@ -27,8 +27,7 @@ function ProgressDisplay(props){
     const fetchBoardDocument = async () => {
       try {
         if (date) {
-          //the board should be unique to each user
-          const ref = await getDoc(doc(db, `board/${date}`));
+          const ref = await getDoc(doc(db, `board${props.user}/${date}`));
           const data = ref.data();
           if(data){
             setMessages(data.messages);
@@ -111,7 +110,7 @@ function ProgressDisplay(props){
           </div>
         </div>
       </div>
-      <ProgressInput input={input} setInput={setInput} messages={messages} setMessages={setMessages}/>
+      <ProgressInput input={input} setInput={setInput} messages={messages} setMessages={setMessages} user={props.user} date={date}/>
     </div>
   )
 }
