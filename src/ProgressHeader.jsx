@@ -5,14 +5,21 @@ import DigitalClock from './DigitalClock.jsx';
 function ProgressHeader(props){
 
   const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const [dateInput, setDateInput] = useState('');
 
   function handleSearchButton(){
     setIsSearchClicked((prev) => !prev);
   }
 
+  function handleDateInput(event){
+    setDateInput(event.target.value);
+  }
+
   function handleFormSubmit(event) {
     event.preventDefault();
-    
+    const newDate = new Date(`${dateInput}T00:00:00`);
+
+    props.setDate(newDate.toLocaleDateString('en-CA'));
   }
 
   return(
@@ -33,7 +40,7 @@ function ProgressHeader(props){
                 </div>
                 <div className='search-date'>
                   <span>Date</span><br />
-                  <input type="date" name="date" />
+                  <input type="date" name="date" onChange={handleDateInput}/>
                 </div>
                 <div className='submit-button-container'>
                   <button type="submit" className='submit-button'>Submit</button>
