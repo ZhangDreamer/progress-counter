@@ -7,13 +7,12 @@ function ProgressHeader(props){
   const [isSearchClicked, setIsSearchClicked] = useState(false);
 
   function handleSearchButton(){
-    if(isSearchClicked){
-      document.querySelector('.search-content').style.display = 'none';
-      setIsSearchClicked(false);
-    } else{
-      document.querySelector('.search-content').style.display = 'block';
-      setIsSearchClicked(true);
-    }
+    setIsSearchClicked((prev) => !prev);
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    
   }
 
   return(
@@ -26,19 +25,21 @@ function ProgressHeader(props){
       <img className="portrait" src={props.imgsrc} alt="motivation-quote"/>
       <div className="search-dropdown">
           <button className='search-button' onClick={handleSearchButton}>Search⮟</button>
-          <div className="search-content">
-            <div className='keyword-search'>
-              <span>Keyword</span>
-              <input type="text"/>
-            </div>
-            <div className='search-date'>
-              <span>Date</span><br/>
-              <input type="date"/>
-            </div>
-            <div className='submit-button-container'>
-              <button className='submit-button'>Submit</button>
-            </div>
-          </div>
+            {isSearchClicked && (
+              <form className="search-content" onSubmit={handleFormSubmit}>
+                <div className='keyword-search'>
+                  <span>Keyword</span>
+                  <input type="text" name="keyword" />
+                </div>
+                <div className='search-date'>
+                  <span>Date</span><br />
+                  <input type="date" name="date" />
+                </div>
+                <div className='submit-button-container'>
+                  <button type="submit" className='submit-button'>Submit</button>
+                </div>
+              </form>
+            )}
         </div>
       <DigitalClock setDate={props.setDate}/>
       
