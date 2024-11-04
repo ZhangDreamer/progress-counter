@@ -10,15 +10,25 @@ function DigitalClock(props){
   const [timezone, setTimezone] = useState(null);
 
   useEffect(() => {
-    const getTime = async () => {
-      const fetchedTime = await fetchTime(location);
-      const timestamp = String(fetchedTime.datetime);
-      const splicedTimestamp = timestamp.slice(0,19);
-      const date = new Date(splicedTimestamp);
-      setTime(date);
-      setTimezone(fetchedTime.abbreviation);
-      props.setDate(date.toLocaleDateString('en-CA'));
-    }
+      const getTime = async () => {
+        try {
+          const fetchedTime = await fetchTime(location);
+          const timestamp = String(fetchedTime.datetime);
+          const splicedTimestamp = timestamp.slice(0,19);
+          const date = new Date(splicedTimestamp);
+          setTime(date);
+          setTimezone(fetchedTime.abbreviation);
+          props.setDate(date.toLocaleDateString('en-CA'));
+          
+        } catch (error) {
+          console.error("Failed to fetch time:", error);
+
+          const fallbackDate = new Date();
+          
+          setTime(fallbackDate);
+          props.setDate(fallbackDate.toLocaleDateString('en-CA'));
+        }
+      }
 
     getTime();
   }, []);
