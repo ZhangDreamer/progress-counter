@@ -88,11 +88,15 @@ function ProgressDisplay(props){
   }
 
   function handleFowardButton(){
-
+    let newDate = new Date(`${date}T00:00:00`);
+    newDate.setDate(newDate.getDate() + 1);
+    setDate(newDate.toLocaleDateString('en-CA'));
   }
 
   function handleBackwardButton(){
-
+    let newDate = new Date(`${date}T00:00:00`);
+    newDate.setDate(newDate.getDate() - 1);
+    setDate(newDate.toLocaleDateString('en-CA'));
   }
 
   function formatResult(){
