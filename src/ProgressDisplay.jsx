@@ -87,6 +87,14 @@ function ProgressDisplay(props){
     }));
   }
 
+  function handleFowardButton(){
+
+  }
+
+  function handleBackwardButton(){
+
+  }
+
   function formatResult(){
     let result = 0;
     messages.forEach((message) => {
@@ -115,8 +123,8 @@ function ProgressDisplay(props){
           <div className='element date'>
             <h4>{date}</h4>
             <div className="navigation-arrows">
-              <button>⇦</button>
-              <button>⇨</button>
+              <button onClick={handleBackwardButton}>⇦</button>
+              <button onClick={handleFowardButton}>⇨</button>
             </div>
             </div>
           <div className='element'>
