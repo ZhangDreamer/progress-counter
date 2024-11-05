@@ -112,7 +112,13 @@ function ProgressDisplay(props){
           <div><h3>Today's Result: {formatResult()}</h3></div>
         </div>
         <div className='progress-notes'>
-          <div className='element date'><h4>{date}</h4></div>
+          <div className='element date'>
+            <h4>{date}</h4>
+            <div className="navigation-arrows">
+              <button>⇦</button>
+              <button>⇨</button>
+            </div>
+            </div>
           <div className='element'>
           {messages.map((message, index) => {
             return (
