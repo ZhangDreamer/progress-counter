@@ -68,6 +68,7 @@ function ProgressDisplay(props){
   }
 
   function handleLikeButton(id){
+    setIsPosting(true);
     setMessages(messages.map((message, index) => {
       if(index === id){
         return {...message, likes: message.likes += 1}
@@ -78,6 +79,7 @@ function ProgressDisplay(props){
   }
 
   function handleDislikeButton(id){
+    setIsPosting(true);
     setMessages(messages.map((message, index) => {
       if(index === id){
         return {...message, dislikes: message.dislikes += 1}
