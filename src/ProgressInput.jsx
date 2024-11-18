@@ -40,7 +40,6 @@ function ProgressInput(props){
         likes: 0,
         dislikes: 0
       }]);
-      document.getElementById('input').value = "";
       document.querySelector('input[name="option"]:checked').checked = false;
       setInput('');
       postMessage();
@@ -55,7 +54,7 @@ function ProgressInput(props){
       <input type="radio" name='option' id='win' value="W"/>
       <label htmlFor='Lose'>Lose</label>
       <input type="radio" name='option' id='lose' value="L"/>
-      <input type="text" onChange={handleInputChange} id="input"/>
+      <input type="text" onChange={handleInputChange} id="input" value={props.input}/>
       <button onClick={handleSendButton}>▶</button>
     </div>
   )
