@@ -11,6 +11,13 @@ function ProgressInput(props){
     setInput(event.target.value);
   }
 
+  function handleKeyDown(event){
+    if(event.key==='Enter'){
+      handleSendButton();
+      return
+    }
+  }
+
   function handleSendButton(){
 
     const winOrLoseOption = document.querySelector('input[name="option"]:checked') ? document.querySelector('input[name="option"]:checked').value : null;
@@ -54,7 +61,7 @@ function ProgressInput(props){
       <input type="radio" name='option' id='win' value="W"/>
       <label htmlFor='Lose'>Lose</label>
       <input type="radio" name='option' id='lose' value="L"/>
-      <input type="text" onChange={handleInputChange} id="input" value={props.input}/>
+      <input type="text" onChange={handleInputChange} id="input" value={props.input} onKeyDown={handleKeyDown}/>
       <button onClick={handleSendButton}>▶</button>
     </div>
   )
