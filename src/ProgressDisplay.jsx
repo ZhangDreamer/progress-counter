@@ -138,7 +138,7 @@ function ProgressDisplay(props){
             return (
             <div className='note' key={index}>
               <p>{message.winOrLose}</p>
-              <p className='comment'>{message.message}</p>
+              <p className={`comment ${message.message.toLowerCase().includes('deed') ? 'red' : ''}`}>{message.message}</p>
               <button className='delete-button' onClick={() => {handleDeleteButton(index)}}>🗑️</button>
               <div className='react-buttons'>
                 <button className="upvote-button" onClick={() => handleLikeButton(index)}>👍 {message.likes}</button>

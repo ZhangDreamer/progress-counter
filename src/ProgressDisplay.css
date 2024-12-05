@@ -74,6 +74,10 @@
   width: 60%;
 }
 
+.red{
+  color: red;
+}
+
 .note .delete-button{
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
